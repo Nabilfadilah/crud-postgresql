@@ -36,6 +36,7 @@
                             <td>{{ $post->title }}</td>
                             <td>{{ $post->body }}</td>
                             <td>
+                                <a href="{{ route('post.show', $post->id) }}" class="btn btn-primary btn-sm">Show</a>
                                 <a href="{{ route('post.edit', $post->id) }}" class="btn btn-outline-info btn-sm">Edit</a>
                             </td>
                         </tr>
