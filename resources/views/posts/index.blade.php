@@ -25,7 +25,7 @@
                         <th>ID</th>
                         <th>Title</th>
                         <th>Body</th>
-                        <th>Action</th>
+                        <th width="250px">Action</th>
                     </tr>
                 </thead>
 
@@ -36,8 +36,14 @@
                             <td>{{ $post->title }}</td>
                             <td>{{ $post->body }}</td>
                             <td>
-                                <a href="{{ route('post.show', $post->id) }}" class="btn btn-primary btn-sm">Show</a>
-                                <a href="{{ route('post.edit', $post->id) }}" class="btn btn-outline-info btn-sm">Edit</a>
+                                <form method="POST" action="{{ route('post.delete', $post->id) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a href="{{ route('post.show', $post->id) }}" class="btn btn-primary btn-sm">Show</a>
+                                    <a href="{{ route('post.edit', $post->id) }}"
+                                        class="btn btn-outline-info btn-sm">Edit</a>
+                                    <button class="btn btn-danger btn-sm">Delete</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
