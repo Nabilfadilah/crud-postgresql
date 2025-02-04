@@ -65,4 +65,12 @@ class PostController extends Controller
         return redirect()->route("post.index")->with('success', "Post updated.");
         // dd($request->all());
     }
+
+    // show post
+    public function show(Request $request, $id)
+    {
+        $post = Post::find($id);
+
+        return view("posts.show", compact("post"));
+    }
 }
