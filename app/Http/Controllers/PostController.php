@@ -73,4 +73,14 @@ class PostController extends Controller
 
         return view("posts.show", compact("post"));
     }
+
+    // delete 
+    public function delete(Request $request, $id)
+    {
+        $post = Post::find($id);
+
+        $post->delete();
+
+        return redirect()->route("post.index")->with("success", "Post deleted.");
+    }
 }
