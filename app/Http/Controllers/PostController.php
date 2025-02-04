@@ -39,4 +39,30 @@ class PostController extends Controller
         // console
         // dd($request->all());
     }
+
+    // edit 
+    public function edit(Request $request, $id)
+    {
+        $post = Post::find($id);
+
+        return view("posts.edit", compact("post"));
+    }
+
+    // update
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            "title" => "required",
+            "body" => "required"
+        ]);
+
+        $post = Post::find($id);
+
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->save();
+
+        return redirect()->route("post.index")->with('success', "Post updated.");
+        // dd($request->all());
+    }
 }
