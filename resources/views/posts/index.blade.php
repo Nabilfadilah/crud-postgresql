@@ -9,7 +9,7 @@
                     <h4>Post</h4>
                 </div>
                 <div class="col-md-3 text-end">
-                    <a href="{{ route('post.create') }}" class="btn btn-success">Create Post</a>
+                    <a href="{{ route('post.create') }}" class="btn btn-success btn-sm">Create Post</a>
                 </div>
             </div>
         </div>
@@ -35,7 +35,9 @@
                             <td>{{ $post->id }}</td>
                             <td>{{ $post->title }}</td>
                             <td>{{ $post->body }}</td>
-                            <td></td>
+                            <td>
+                                <a href="{{ route('post.edit', $post->id) }}" class="btn btn-outline-info btn-sm">Edit</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
