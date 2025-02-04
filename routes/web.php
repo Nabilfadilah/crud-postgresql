@@ -10,3 +10,5 @@ Route::get('/', function () {
 Route::get("posts", [PostController::class, 'index'])->name("post.index");
 Route::get("posts/create", [PostController::class, 'create'])->name("post.create");
 Route::post("posts/create", [PostController::class, 'store'])->name("post.store");
+Route::get("posts/{id}/edit", [PostController::class, 'edit'])->name("post.edit");
+Route::put("posts/{id}", [PostController::class, 'update'])->name("post.update");
