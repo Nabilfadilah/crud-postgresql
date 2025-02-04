@@ -21,10 +21,16 @@
                         <h4>Post</h4>
                     </div>
                     <div class="col-md-3 text-end">
+                        <a href="{{ route('post.create') }}" class="btn btn-success">Create Post</a>
                     </div>
                 </div>
             </div>
             <div class="card-body">
+
+                @session('success')
+                    <div class="alert alert-success">{{ $value }}</div>
+                @endsession
+
                 <table class="table table-bordered">
                     <thead>
                         <tr>
